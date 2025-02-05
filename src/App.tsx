@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button, Container, Typography } from "@mui/material";
 
 const App: React.FC = () => {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(undefined);
 
   return (
     <Container>
