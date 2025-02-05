@@ -18,7 +18,7 @@ function build_regex() {
 build_regex
 
 INPUT=$1
-commit_message=head -n1 $INPUT
+commit_message=$(head -n1 "$INPUT")
 
 function print_error() {
   echo -e "\n\e[31m[Невалидный формат коммита]"
@@ -29,7 +29,7 @@ function print_error() {
   echo -e "\e[37mRegex: \e[33m\"$regexp\"\033[0m"
 }
 
-if [[ ! $commit_message =~ $regexp ]]; then
+if [[ ! "$commit_message" =~ $regexp ]]; then
   print_error
   exit 1
 fi
