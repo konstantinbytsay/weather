@@ -4,7 +4,7 @@ import { Button, Container, Typography } from "@mui/material";
 
 const App: React.FC = () => {
   const [counter, setCounter] = useState(undefined);
-
+  const a: number = "as";
   return (
     <Container>
       <Typography variant="h1" component="h1" gutterBottom>
