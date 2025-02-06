@@ -1,24 +1,16 @@
-// src/App.tsx
-import React, { useState } from "react";
-import { Button, Container, Typography } from "@mui/material";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { routesConfig } from "./routes/routes.config";
 
 const App: React.FC = () => {
-  const [counter, setCounter] = useState(undefined);
-  const a: number = "as";
   return (
-    <Container>
-      <Typography variant="h1" component="h1" gutterBottom>
-        This is weather app
-      </Typography>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => setCounter(counter + 1)}
-      >
-        Click Me
-      </Button>
-      <Typography>{counter}</Typography>
-    </Container>
+    <Router>
+      <Routes>
+        {routesConfig.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
+      </Routes>
+    </Router>
   );
 };
 
