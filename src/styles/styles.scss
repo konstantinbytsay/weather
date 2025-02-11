@@ -1,0 +1,26 @@
+@use "reset";
+@use "fonts";
+
+.container {
+  box-sizing: border-box;
+  padding: 63px 80px;
+  width: 100vw;
+  height: 100vh;
+  transition: all 0.4s;
+  background: linear-gradient(
+    112.65deg,
+    #ffffff 2.33%,
+    rgba(70, 97, 115, 0) 178.65%
+  );
+}
+
+.dark-mode {
+  .container {
+    transition: all 0.4s;
+    background: linear-gradient(
+      110.05deg,
+      #383838 0%,
+      rgba(158, 158, 158, 0) 71.82%
+    );
+  }
+}
