@@ -14,4 +14,5 @@ module.exports = {
     ".+\\.(css|less|sass|scss|png|jpg|gif|ttf|woff|woff2|svg)$":
       "jest-transform-stub",
   },
+  setupFilesAfterEnv: ["./jest.setup.ts"],
 };

@@ -26,7 +26,7 @@ export const ThemeToggle = () => {
         />
         <span className="mode-toggle__slider mode-toggle__slider--round"></span>
       </label>
-      <p className="mode-toggle__mode-hint">
+      <p className="mode-toggle__mode-hint" data-testid="togle-hint">
         {isDarkMode ? "Dark" : "Light"} Mode
       </p>
     </div>
