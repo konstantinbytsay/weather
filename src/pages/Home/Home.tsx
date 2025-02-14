@@ -1,9 +1,9 @@
-import { ThemeToggle } from "@src/components/ThemeToggle/ThemeToggle";
+import { Header } from "@src/components/Header/Header";
 
 export const Home = () => {
   return (
     <div>
-      <ThemeToggle />
+      <Header />
     </div>
   );
 };
