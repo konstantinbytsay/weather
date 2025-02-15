@@ -1,8 +1,8 @@
 import { axiosInstance } from "./axiosInstance";
 
-export const searchCity = async () => {
+export const searchCity = async (city: string) => {
   try {
-    const response = await axiosInstance.get("/city");
+    const response = await axiosInstance.get("/city", { params: { city } });
     console.log("Data received:", response.data);
   } catch (error) {
     console.error("Error fetching data:", error);
