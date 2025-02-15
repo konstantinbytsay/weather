@@ -1,6 +1,32 @@
+@use "../../styles/variabels.scss" as v;
+
 .search {
+  position: relative;
   &__input {
     display: block;
     width: calc(100vw - 640px);
+    height: 62px;
+    border-radius: 31px;
+    background-color: v.$background-color;
+    padding-left: 105px;
+    font-family: "Poppins", sans-serif;
+    font-weight: regular;
+    font-size: 18px;
+    color: v.$primary-color;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 33px;
+    top: 8px;
+  }
+}
+
+.dark-mode {
+  .search {
+    &__input {
+      color: v.$primary-color-dark;
+      background-color: v.$background-color-dark;
+    }
   }
 }

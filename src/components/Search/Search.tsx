@@ -5,7 +5,11 @@ export const Search = () => {
   return (
     <div className="search">
       <SearchIcon />
-      <input type="text" className="search__input" />
+      <input
+        type="text"
+        className="search__input"
+        placeholder="Search for your preffered city..."
+      />
     </div>
   );
 };
