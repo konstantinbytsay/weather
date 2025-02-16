@@ -1,8 +1,8 @@
 import { http, HttpResponse } from "msw";
-import { citiesMock } from "./cities";
+import { generateFakeCities } from "./cities";
 
 export const handlers = [
-  http.get("/api/cities", () => {
-    return HttpResponse.json(citiesMock);
+  http.get("https://api.example.com/city", () => {
+    return HttpResponse.json(generateFakeCities(1000));
   }),
 ];

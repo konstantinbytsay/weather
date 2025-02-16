@@ -1,4 +1,10 @@
-export const citiesMock = [
-  { id: 1, name: "New York", country: "USA", population: 8419000 },
-  { id: 2, name: "Los Angeles", country: "USA", population: 3967000 },
-];
+import { faker } from "@faker-js/faker";
+
+export const generateFakeCities = (count: number) => {
+  return Array.from({ length: count }, (_, i) => ({
+    id: i + 1,
+    name: faker.location.city(),
+    country: faker.location.country(),
+    population: faker.number.int({ min: 100000, max: 10000000 }),
+  }));
+};
