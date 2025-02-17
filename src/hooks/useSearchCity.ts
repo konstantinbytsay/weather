@@ -2,7 +2,7 @@ import { searchCity } from "@src/api/search";
 import { ICityResponse } from "@src/modeles/cities";
 import { useState, useEffect } from "react";
 
-export const useSearchCity = (city: string) => {
+export const useSearchCity = (city?: string) => {
   const [data, setData] = useState<ICityResponse[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
