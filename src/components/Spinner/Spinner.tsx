@@ -1,5 +1,10 @@
+import React from "react";
 import "./styles.scss";
 
-export const Spinner = () => {
-  return <div className="loading"></div>;
+interface SpinnerProps {
+  className?: string;
+}
+
+export const Spinner: React.FC<SpinnerProps> = ({ className = "" }) => {
+  return <div className={"loading " + className}></div>;
 };
