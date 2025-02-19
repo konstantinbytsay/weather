@@ -23,8 +23,20 @@
   &__spinner {
     position: absolute;
     right: 10px;
-
     top: 9px;
+  }
+
+  &__results {
+    width: calc(100vw - 640px);
+    border-radius: 30px;
+    box-shadow: v.$block-shadow;
+    position: absolute;
+    top: 85px;
+    max-height: 500px;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
 }
 

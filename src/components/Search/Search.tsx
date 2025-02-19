@@ -1,13 +1,13 @@
 import { SearchIcon } from "@src/consts/icons";
 import "./styles.scss";
 import { useSearchCity } from "@src/hooks/useSearchCity";
-import { useState } from "react";
 import { Spinner } from "../Spinner/Spinner";
 import { SearchResults } from "./components/SearchResults/SearchResults";
 
 export const Search = () => {
-  const [city, setCity] = useState<string>();
-  const { data, loading } = useSearchCity(city);
+  const { data, loading, setCity, isSearchShown, clearSearch } =
+    useSearchCity();
+
   return (
     <div className="search">
       <SearchIcon />
@@ -16,9 +16,10 @@ export const Search = () => {
         className="search__input"
         placeholder="Search for your preffered city..."
         onChange={(e) => setCity(e.target.value)}
+        onBlur={() => clearSearch()}
       />
       {loading && <Spinner className="search__spinner" />}
-      {data && <SearchResults cities={data} />}
+      {isSearchShown && <SearchResults cities={data} />}
     </div>
   );
 };
