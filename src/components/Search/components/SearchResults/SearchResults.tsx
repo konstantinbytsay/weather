@@ -1,4 +1,6 @@
 import { ICityResponse } from "@src/modeles/cities";
+import { Link } from "react-router";
+
 import React from "react";
 import "./styles.scss";
 
@@ -14,7 +16,13 @@ export const SearchResults: React.FC<ISearchResultsProps> = ({
       <ul className="cities">
         {cities &&
           cities.map((item) => {
-            return <li>{item.name}</li>;
+            return (
+              <li>
+                <Link to={{ pathname: "/city", search: `?city=${item.id}` }}>
+                  {item.name}
+                </Link>
+              </li>
+            );
           })}
       </ul>
     </div>

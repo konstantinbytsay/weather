@@ -5,8 +5,7 @@ import { Spinner } from "../Spinner/Spinner";
 import { SearchResults } from "./components/SearchResults/SearchResults";
 
 export const Search = () => {
-  const { data, loading, setCity, isSearchShown, clearSearch } =
-    useSearchCity();
+  const { data, loading, setCity, isSearchShown } = useSearchCity();
 
   return (
     <div className="search">
@@ -16,7 +15,6 @@ export const Search = () => {
         className="search__input"
         placeholder="Search for your preffered city..."
         onChange={(e) => setCity(e.target.value)}
-        onBlur={() => clearSearch()}
       />
       {loading && <Spinner className="search__spinner" />}
       {isSearchShown && <SearchResults cities={data} />}
