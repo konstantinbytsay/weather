@@ -1,4 +1,6 @@
 import React, { useCallback, useState } from "react";
+import "./styles.scss";
+import { CurrentLocationIcon } from "@src/consts/icons";
 
 interface LocationState {
   latitude: number | null;
@@ -41,8 +43,11 @@ const CurrentLocationBtn: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <button onClick={getLocation}>Get Current Location</button>
+    <div className="location">
+      <button className="location__button" onClick={getLocation}>
+        <CurrentLocationIcon />
+        Current Location
+      </button>
       {location.error ? (
         <p>Error: {location.error}</p>
       ) : (

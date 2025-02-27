@@ -1,0 +1,19 @@
+@use "../../styles/variabels.scss" as v;
+
+.location{
+    &__button {
+        font-family: "Poppins", sans-serif;
+        font-weight: 800;
+        font-size: 22px;
+        background-color: v.$accent-green;
+        height: 62px;
+        border-radius: 31px;
+        width: 292px;
+        color: v.$primary-color-dark;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-evenly;
+        border:0px;
+    }
+}
