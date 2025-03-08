@@ -1,61 +1,34 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback,  } from "react";
 import "./styles.scss";
 import { CurrentLocationIcon } from "@src/consts/icons";
+import { useCity } from "@src/hooks/useCity";
 
-interface LocationState {
-  latitude: number | null;
-  longitude: number | null;
-  error: string | null;
-}
 
 const CurrentLocationBtn: React.FC = () => {
-  const [location, setLocation] = useState<LocationState>({
-    latitude: null,
-    longitude: null,
-    error: null,
-  });
+  const { setCityCoordinates } = useCity();
 
   const getLocation = useCallback(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          setLocation({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-            error: null,
-          });
+         setCityCoordinates(position.coords.latitude,position.coords.longitude)
         },
         (error) => {
-          setLocation({
-            latitude: null,
-            longitude: null,
-            error: error.message,
-          });
+           console.log(error)
         }
       );
     } else {
-      setLocation({
-        latitude: null,
-        longitude: null,
-        error: "Geolocation is not supported by this browser.",
-      });
+      return null
     }
-  }, []);
+  }, [navigator,setCityCoordinates]);
 
   return (
     <div className="location">
-      <button className="location__button" onClick={getLocation}>
+      <button className="location__button" onClick={()=>getLocation()}>
         <CurrentLocationIcon />
         Current Location
       </button>
-      {location.error ? (
-        <p>Error: {location.error}</p>
-      ) : (
-        <p>
-          Latitude: {location.latitude}, Longitude: {location.longitude}
-        </p>
-      )}
-    </div>
+  </div>
   );
 };
 
